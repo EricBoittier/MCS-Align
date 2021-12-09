@@ -134,7 +134,7 @@ class MCSAlign:
         align_1 = keep_indices(m1_xyz, indices_match1[0])
         align_2 = keep_indices(m2_xyz, indices_match2[0])
 
-        rotation, rmsd = Rotation.Rotation.align_vectors(align_1, align_2*trans)
+        rotation, rmsd = Rotation.Rotation.align_vectors(align_1, align_2+trans)
 
         rotated = rotation.apply(m2_xyz)
         translated = rotated + trans
