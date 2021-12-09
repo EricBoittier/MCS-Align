@@ -31,6 +31,14 @@ def np_to_xyz(np_array, atoms):
         s += f"{a} {xyz[0]} {xyz[1]} {xyz[2]}\n"
     return s
 
+def keep_indices(xyz, indices):
+    output = np.zeros((len(indices), 3))
+    for i, index in enumerate(indices):
+        output[i][0] = xyz[index][0]
+        output[i][1] = xyz[index][1]
+        output[i][2] = xyz[index][2]
+
+    return output
 
 class MCSAlign:
     def __init__(self, target):
@@ -118,8 +126,8 @@ class MCSAlign:
         m2_xyz, m2_atoms = mol_to_xyz_np(mol)
         indices_match1 = self.find_indices(self.target_molHs)
         indices_match2 = self.find_indices(mol)
-        align_1 = np.take(m1_xyz, indices_match1[0], axis=0)
-        align_2 = np.take(m2_xyz, indices_match2[0], axis=0)
+        align_1 = keep_indices(m1_xyz, indices_match1[0])
+        align_2 = keep_indices(m2_xyz, indices_match2[0])
 
         rotation, rmsd = Rotation.Rotation.align_vectors(align_1, align_2)
 
