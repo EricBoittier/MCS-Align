@@ -124,12 +124,17 @@ class MCSAlign:
     def rotate_align(self, mol):
         m1_xyz, m1_atoms = mol_to_xyz_np(self.target_molHs)
         m2_xyz, m2_atoms = mol_to_xyz_np(mol)
+
+        com1 = np.mean(m1_xyz.T, axis=1)
+        com2 = np.mean(m2_xyz.T, axis=1)
+        trans = com2 - com1
+
         indices_match1 = self.find_indices(self.target_molHs)
         indices_match2 = self.find_indices(mol)
         align_1 = keep_indices(m1_xyz, indices_match1[0])
         align_2 = keep_indices(m2_xyz, indices_match2[0])
 
-        rotation, rmsd = Rotation.Rotation.align_vectors(align_1, align_2)
+        rotation, rmsd = Rotation.Rotation.align_vectors(align_1, align_2*trans)
 
         rotated = rotation.apply(m2_xyz)
 
