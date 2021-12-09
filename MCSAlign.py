@@ -127,7 +127,7 @@ class MCSAlign:
 
         com1 = np.mean(m1_xyz.T, axis=1)
         com2 = np.mean(m2_xyz.T, axis=1)
-        trans = com2 - com1
+        trans = com1 - com2
 
         indices_match1 = self.find_indices(self.target_molHs)
         indices_match2 = self.find_indices(mol)
