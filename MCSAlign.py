@@ -124,6 +124,15 @@ class MCSAlign:
         rotation, rmsd = Rotation.Rotation.align_vectors(align_1, align_2)
 
         rotated = rotation.apply(m2_xyz)
+
+        xyz_final_str = np_to_xyz(rotated, m2_atoms)
+        xyz_start_str = np_to_xyz(m1_xyz, m1_atoms)
+
+        with open("test1.xyz", "w") as f:
+            f.write(xyz_final_str)
+        with open("test2.xyz", "w") as f:
+            f.write(xyz_start_str)
+
         return rotated, m2_atoms
 
 
