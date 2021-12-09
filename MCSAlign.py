@@ -14,7 +14,7 @@ IPythonConsole.drawOptions.addAtomIndices = True
 RDLogger.DisableLog('rdApp.*')
 
 
-GDB11_PATH = "/home/boittier/Desktop"
+GDB11_PATH = "/data/unibas/boittier/GDB"
 
 
 def mol_to_xyz_np(mol):

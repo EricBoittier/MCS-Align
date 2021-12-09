@@ -1,7 +1,9 @@
 from MCSAlign import MCSAlign
 
-mcsa = MCSAlign("/home/boittier/hydra/train/62-53-3.out")
-mcsa.set_smiles(9,9)
+mcsa = MCSAlign("/data/unibas/boittier/hydra/train/62-53-3.out")
+mcsa.set_smiles(8,9)
+print("finding similarities")
 mcsa.set_similarities()
-mcsa.find_matches(0.1)
-
+#print(mcsa.similarities)
+mcsa.find_matches(0.16)
+print(mcsa.matches)
