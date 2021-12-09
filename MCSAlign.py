@@ -103,11 +103,11 @@ class MCSAlign:
                 self.matches_mols.append(mol)
 
     def find_indices(self, mol):
-        return mol.GetSubstructMatches(self.mcs_smarts)
+        return mol.GetSubstructMatches(self.mcs_mol)
 
     def find_MCS(self):
         mcs_mols = self.matches_mols
-        mcs_mols.extend(self.target_molHs)
+        mcs_mols.append(self.target_molHs)
         res = rdFMCS.FindMCS(mcs_mols, bondCompare=rdFMCS.BondCompare.CompareOrderExact,
                              ringMatchesRingOnly=True)
         self.mcs_smarts = res.smartsString

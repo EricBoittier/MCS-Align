@@ -7,3 +7,8 @@ mcsa.set_similarities()
 #print(mcsa.similarities)
 mcsa.find_matches(0.16)
 print(mcsa.matches)
+mcsa.find_MCS()
+m1 = mcsa.matches[0][1]
+print(mcsa.rotate_align(m1))
+
+
