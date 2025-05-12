@@ -1,5 +1,5 @@
 To use this script, you need to have the GDB11 dataset downloaded and unzipped.
-The files are too large to upload to the repository, but you can download them from the following link: 
+The files are too large to upload to the repository, but you can download them from the following link: https://gdb.unibe.ch/downloads/
 They should look like this:
 
 ```bash
