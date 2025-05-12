@@ -1,0 +1,14 @@
+@<TRIPOS>MOLECULE
+h2o.out
+ 3 2 0 0 0
+SMALL
+MULLIKEN_CHARGES
+****
+Gaussian opt/programs/g09-d.01/g09 # opt freq b3lyp/aug-cc-pvtz EmpiricalDispersion=GD3
+@<TRIPOS>ATOM
+      1 O           0.0000    0.0000    0.1170 O.3     1  HOH1       -0.3547
+      2 H           0.0000    0.7636   -0.4679 H       0  HOH0        0.1774
+      3 H           0.0000   -0.7636   -0.4679 H       0  HOH0        0.1774
+@<TRIPOS>BOND
+     1     2     1    1
+     2     3     1    1
